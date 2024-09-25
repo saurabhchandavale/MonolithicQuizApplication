@@ -40,6 +40,31 @@ public class QuizController {
 		ResponseEntity<List<QuestionWrapper>> quiz = quizService.getQuiz(id);
 		return quiz;
 	}
+	/*[
+  {
+    "id": 5,
+    "response": 0
+  },
+  {
+    "id": 13,
+    "response": 0
+  },
+  {
+    "id": 21,
+    "response": 0
+  },
+  {
+    "id": 15,
+    "response": "implements"
+  },
+  {
+    "id": 1,
+    "response": "Java SE"
+  }
+]
+*/
+	
+	//http://localhost:8003/quiz/submit/4
 	@PostMapping("/submit/{id}")
 	public ResponseEntity<Integer> submitQuiz(@PathVariable int id,@RequestBody List<Response> response) {
 		ResponseEntity<Integer> calculate = quizService.calculate(id,response);
