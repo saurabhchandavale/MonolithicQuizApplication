@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
 
 import com.example.demo.modal.Question;
 import com.example.demo.service.QuestionService;
@@ -20,7 +23,7 @@ public class QuestionController {
 	QuestionService questionService;
 	//http://localhost:8003/questions/allquestions
 	@GetMapping("/allquestions")
-	public List<Question> getAllQuestions() {
+	public ResponseEntity<List<Question>> getAllQuestions() {
 		
 		return questionService.getAllQuestions();
 	}
@@ -32,8 +35,8 @@ public class QuestionController {
 	}
 	//http://localhost:8003/questions/addquestion
 	@PostMapping("/addquestion")
-	public Question addQuestion(@RequestBody Question question) {
-		Question addedQuestion = questionService.addQuestion(question);
+	public ResponseEntity<Question> addQuestion(@RequestBody Question question) {
+		ResponseEntity<Question> addedQuestion = questionService.addQuestion(question);
 		return addedQuestion;
 	}
 

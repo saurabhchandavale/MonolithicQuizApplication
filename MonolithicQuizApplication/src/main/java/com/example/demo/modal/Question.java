@@ -1,5 +1,7 @@
 package com.example.demo.modal;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,6 +28,10 @@ public class Question {
 	private String option4;
 	private String questionTitle;
 	private String rightAnswer;
+	public List<Question> getQuestion() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 }
